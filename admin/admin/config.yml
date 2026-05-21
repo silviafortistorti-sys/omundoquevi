@@ -1,0 +1,19 @@
+backend:
+  name: github
+  repo: silviafortistorti-sys/omundoquevi
+  branch: main
+
+media_folder: "public/images"
+public_folder: "/images"
+
+collections:
+  - name: "posts"
+    label: "Postagens"
+    folder: "posts"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Título", name: "title", widget: "string" }
+      - { label: "Data", name: "date", widget: "datetime" }
+      - { label: "Imagem", name: "thumbnail", widget: "image", required: false }
+      - { label: "Conteúdo", name: "body", widget: "markdown" }
