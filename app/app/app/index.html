@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>O Mundo Que Vi</title>
+
+<style>
+body{
+margin:0;
+font-family:Arial;
+display:flex;
+background:#f1f1f1;
+}
+
+.sidebar{
+width:260px;
+background:black;
+color:white;
+padding:20px;
+height:100vh;
+}
+
+.sidebar h1{
+font-size:28px;
+margin-bottom:30px;
+}
+
+.city{
+background:#222;
+padding:15px;
+border-radius:15px;
+margin-bottom:15px;
+cursor:pointer;
+}
+
+.city:hover{
+background:#444;
+}
+
+.content{
+flex:1;
+padding:30px;
+}
+
+.card{
+background:white;
+border-radius:20px;
+overflow:hidden;
+box-shadow:0 4px 15px rgba(0,0,0,0.1);
+}
+
+.card img{
+width:100%;
+height:400px;
+object-fit:cover;
+}
+
+.info{
+padding:30px;
+}
+
+iframe{
+width:100%;
+height:400px;
+border:none;
+border-radius:20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="sidebar">
+<h1>O Mundo Que Vi</h1>
+
+<div class="city" onclick="mostrarCidade('roma')">
+<h3>Roma</h3>
+<p>Itália</p>
+</div>
+
+<div class="city" onclick="mostrarCidade('paris')">
+<h3>Paris</h3>
+<p>França</p>
+</div>
+
+<div class="city" onclick="mostrarCidade('siena')">
+<h3>Siena</h3>
+<p>Itália</p>
+</div>
+
+</div>
+
+<div class="content">
+<div class="card">
+
+<img id="imagem" src="https://images.unsplash.com/photo-1552832230-c0197dd311b5?q=80&w=1200&auto=format&fit=crop">
+
+<div class="info">
+
+<h1 id="titulo">Roma</h1>
+
+<p id="descricao">
+Roma é uma cidade histórica repleta de monumentos incríveis.
+</p>
+
+<h2>Dicas</h2>
+
+<ul id="dicas">
+<li>Visite o Coliseu</li>
+<li>Conheça o Vaticano</li>
+<li>Experimente massas italianas</li>
+</ul>
+
+<h2>Mapa</h2>
+
+<iframe id="mapa" src="https://www.google.com/maps?q=Roma+Italia&output=embed"></iframe>
+
+</div>
+</div>
+</div>
+
+<script>
+
+const cidades = {
+
+roma:{
+titulo:'Roma',
+imagem:'https://images.unsplash.com/photo-1552832230-c0197dd311b5?q=80&w=1200&auto=format&fit=crop',
+descricao:'Roma é uma cidade histórica repleta de monumentos incríveis.',
+dicas:[
+'Visite o Coliseu',
+'Conheça o Vaticano',
+'Experimente massas italianas'
+],
+mapa:'https://www.google.com/maps?q=Roma+Italia&output=embed'
+},
+
+paris:{
+titulo:'Paris',
+imagem:'https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=1200&auto=format&fit=crop',
+descricao:'Paris encanta com seus cafés e monumentos.',
+dicas:[
+'Suba na Torre Eiffel',
+'Passeie pelo Rio Sena',
+'Visite o Louvre'
+],
+mapa:'https://www.google.com/maps?q=Paris+Franca&output=embed'
+},
+
+siena:{
+titulo:'Siena',
+imagem:'https://images.unsplash.com/photo-1525874684015-58379d421a52?q=80&w=1200&auto=format&fit=crop',
+descricao:'Charmosa cidade medieval da Toscana.',
+dicas:[
+'Conheça Chianti',
+'Visite vinícolas',
+'Experimente vinhos locais'
+],
+mapa:'https://www.google.com/maps?q=Siena+Italia&output=embed'
+}
+
+}
+
+function mostrarCidade(nome){
+
+const cidade = cidades[nome]
+
+document.getElementById('titulo').innerText = cidade.titulo
+document.getElementById('imagem').src = cidade.imagem
+document.getElementById('descricao').innerText = cidade.descricao
+
+let lista=''
+
+cidade.dicas.forEach(dica=>{
+lista += `<li>${dica}</li>`
+})
+
+document.getElementById('dicas').innerHTML = lista
+document.getElementById('mapa').src = cidade.mapa
+
+}
+
+</script>
+
+</body>
+</html>
