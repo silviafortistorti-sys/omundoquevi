@@ -6,19 +6,22 @@
 <title>O Mundo Que Vi</title>
 
 <style>
+
 body{
 margin:0;
 font-family:Arial;
 display:flex;
-background:#f1f1f1;
+background:#f5f5f5;
 }
 
 .sidebar{
 width:260px;
-background:black;
+background:#111;
 color:white;
-padding:20px;
 height:100vh;
+padding:20px;
+position:fixed;
+overflow:auto;
 }
 
 .sidebar h1{
@@ -26,158 +29,219 @@ font-size:28px;
 margin-bottom:30px;
 }
 
-.city{
-background:#222;
+.sidebar button{
+width:100%;
 padding:15px;
-border-radius:15px;
-margin-bottom:15px;
+margin-bottom:10px;
+border:none;
+background:#222;
+color:white;
 cursor:pointer;
+border-radius:10px;
+font-size:16px;
+transition:0.3s;
 }
 
-.city:hover{
-background:#444;
+.sidebar button:hover{
+background:#d4af37;
+color:black;
 }
 
 .content{
-flex:1;
-padding:30px;
+margin-left:280px;
+padding:40px;
+width:100%;
+}
+
+.city{
+display:none;
+}
+
+.city.active{
+display:block;
+}
+
+.hero{
+width:100%;
+height:350px;
+object-fit:cover;
+border-radius:20px;
+margin-bottom:20px;
+}
+
+h2{
+font-size:40px;
+margin-bottom:10px;
+}
+
+p{
+font-size:18px;
+line-height:1.7;
 }
 
 .card{
 background:white;
+padding:20px;
 border-radius:20px;
-overflow:hidden;
-box-shadow:0 4px 15px rgba(0,0,0,0.1);
-}
-
-.card img{
-width:100%;
-height:400px;
-object-fit:cover;
-}
-
-.info{
-padding:30px;
+margin-top:20px;
+box-shadow:0 2px 10px rgba(0,0,0,0.1);
 }
 
 iframe{
 width:100%;
-height:400px;
+height:300px;
 border:none;
 border-radius:20px;
+margin-top:20px;
 }
+
 </style>
+
 </head>
 
 <body>
 
 <div class="sidebar">
-<h1>O Mundo Que Vi</h1>
 
-<div class="city" onclick="mostrarCidade('roma')">
-<h3>Roma</h3>
-<p>Itália</p>
-</div>
+<h1>🌍 O Mundo Que Vi</h1>
 
-<div class="city" onclick="mostrarCidade('paris')">
-<h3>Paris</h3>
-<p>França</p>
-</div>
+<button onclick="showCity('paris')">Paris</button>
 
-<div class="city" onclick="mostrarCidade('siena')">
-<h3>Siena</h3>
-<p>Itália</p>
-</div>
+<button onclick="showCity('roma')">Roma</button>
+
+<button onclick="showCity('londres')">Londres</button>
+
+<button onclick="showCity('barcelona')">Barcelona</button>
 
 </div>
 
 <div class="content">
+
+<div id="paris" class="city active">
+
+<img class="hero" src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=1200&auto=format&fit=crop">
+
+<h2>Paris</h2>
+
 <div class="card">
 
-<img id="imagem" src="https://images.unsplash.com/photo-1552832230-c0197dd311b5?q=80&w=1200&auto=format&fit=crop">
-
-<div class="info">
-
-<h1 id="titulo">Roma</h1>
-
-<p id="descricao">
-Roma é uma cidade histórica repleta de monumentos incríveis.
+<p>
+Paris encanta com seus cafés, museus, arquitetura histórica e muita cultura.
+A cidade luz é perfeita para caminhar sem pressa admirando cada detalhe.
 </p>
 
-<h2>Dicas</h2>
-
-<ul id="dicas">
-<li>Visite o Coliseu</li>
-<li>Conheça o Vaticano</li>
-<li>Experimente massas italianas</li>
-</ul>
-
-<h2>Mapa</h2>
-
-<iframe id="mapa" src="https://www.google.com/maps?q=Roma+Italia&output=embed"></iframe>
+<p>
+Principais atrações:
+• Torre Eiffel
+• Museu do Louvre
+• Rio Sena
+• Arco do Triunfo
+• Montmartre
+</p>
 
 </div>
+
+<iframe src="https://www.google.com/maps?q=paris&output=embed"></iframe>
+
 </div>
+
+<div id="roma" class="city">
+
+<img class="hero" src="https://images.unsplash.com/photo-1552832230-c0197dd311b5?q=80&w=1200&auto=format&fit=crop">
+
+<h2>Roma</h2>
+
+<div class="card">
+
+<p>
+Roma é um verdadeiro museu a céu aberto.
+Cada rua guarda séculos de história, arte e gastronomia inesquecível.
+</p>
+
+<p>
+Principais atrações:
+• Coliseu
+• Vaticano
+• Fontana di Trevi
+• Pantheon
+• Piazza Navona
+</p>
+
+</div>
+
+<iframe src="https://www.google.com/maps?q=roma&output=embed"></iframe>
+
+</div>
+
+<div id="londres" class="city">
+
+<img class="hero" src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?q=80&w=1200&auto=format&fit=crop">
+
+<h2>Londres</h2>
+
+<div class="card">
+
+<p>
+Londres mistura tradição e modernidade como poucas cidades no mundo.
+Os parques, museus e pubs tornam a experiência única.
+</p>
+
+<p>
+Principais atrações:
+• Big Ben
+• London Eye
+• Tower Bridge
+• Buckingham Palace
+• British Museum
+</p>
+
+</div>
+
+<iframe src="https://www.google.com/maps?q=londres&output=embed"></iframe>
+
+</div>
+
+<div id="barcelona" class="city">
+
+<img class="hero" src="https://images.unsplash.com/photo-1583422409516-2895a77efded?q=80&w=1200&auto=format&fit=crop">
+
+<h2>Barcelona</h2>
+
+<div class="card">
+
+<p>
+Barcelona combina praia, arquitetura incrível e vida noturna animada.
+A cidade tem energia vibrante e muita arte.
+</p>
+
+<p>
+Principais atrações:
+• Sagrada Família
+• Park Güell
+• La Rambla
+• Bairro Gótico
+• Barceloneta
+</p>
+
+</div>
+
+<iframe src="https://www.google.com/maps?q=barcelona&output=embed"></iframe>
+
+</div>
+
 </div>
 
 <script>
 
-const cidades = {
+function showCity(cityId){
 
-roma:{
-titulo:'Roma',
-imagem:'https://images.unsplash.com/photo-1552832230-c0197dd311b5?q=80&w=1200&auto=format&fit=crop',
-descricao:'Roma é uma cidade histórica repleta de monumentos incríveis.',
-dicas:[
-'Visite o Coliseu',
-'Conheça o Vaticano',
-'Experimente massas italianas'
-],
-mapa:'https://www.google.com/maps?q=Roma+Italia&output=embed'
-},
+const cities = document.querySelectorAll('.city');
 
-paris:{
-titulo:'Paris',
-imagem:'https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=1200&auto=format&fit=crop',
-descricao:'Paris encanta com seus cafés e monumentos.',
-dicas:[
-'Suba na Torre Eiffel',
-'Passeie pelo Rio Sena',
-'Visite o Louvre'
-],
-mapa:'https://www.google.com/maps?q=Paris+Franca&output=embed'
-},
+cities.forEach(city => {
+city.classList.remove('active');
+});
 
-siena:{
-titulo:'Siena',
-imagem:'https://images.unsplash.com/photo-1525874684015-58379d421a52?q=80&w=1200&auto=format&fit=crop',
-descricao:'Charmosa cidade medieval da Toscana.',
-dicas:[
-'Conheça Chianti',
-'Visite vinícolas',
-'Experimente vinhos locais'
-],
-mapa:'https://www.google.com/maps?q=Siena+Italia&output=embed'
-}
-
-}
-
-function mostrarCidade(nome){
-
-const cidade = cidades[nome]
-
-document.getElementById('titulo').innerText = cidade.titulo
-document.getElementById('imagem').src = cidade.imagem
-document.getElementById('descricao').innerText = cidade.descricao
-
-let lista=''
-
-cidade.dicas.forEach(dica=>{
-lista += `<li>${dica}</li>`
-})
-
-document.getElementById('dicas').innerHTML = lista
-document.getElementById('mapa').src = cidade.mapa
+document.getElementById(cityId).classList.add('active');
 
 }
 
